@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api')
-var HTTP_PORT = 8080
+var HTTP_PORT = 4000
 
 var app = express();
 
