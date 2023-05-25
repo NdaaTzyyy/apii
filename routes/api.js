@@ -1,8 +1,8 @@
 var express = require("express")
 var scr = require("api-dylux")
-var app = express()
+var router = express()
 
-app.get("/ai", async (req, res, next) => {
+router.get("/ai", async (req, res, next) => {
     const { Configuration, OpenAIApi } = require("openai")
     let query = req.query.query
     if (!query) return res.json({"message":"masukkan query"})
@@ -25,7 +25,7 @@ const response = await openai.createCompletion({
                 resultnya
             })
 })
-app.get("/xnxxsearch", async (req, res, next) => {
+router.get("/xnxxsearch", async (req, res, next) => {
     let query = req.query.query
     if (!query) return res.json({"message":"masukkan query"})
     const ress = await scr.xnxxSearch(query)
@@ -34,7 +34,7 @@ app.get("/xnxxsearch", async (req, res, next) => {
         result
     })
 })
-app.get("/xnxxdl", async (req, res, next) => {
+router.get("/xnxxdl", async (req, res, next) => {
     let url = req.query.url
     if (!url) return res.json({"message":"masukkan url"})
     const ress = await scr.xnxxdl(url)
@@ -43,7 +43,7 @@ app.get("/xnxxdl", async (req, res, next) => {
         result
     })
 })
-app.get("/tiktok", async (req, res, next) => {
+router.get("/tiktok", async (req, res, next) => {
     let url = req.query.url
     if (!url) return res.json({"message":"masukkan url"})
     const ress = await scr.tiktok(url)
@@ -53,4 +53,4 @@ app.get("/tiktok", async (req, res, next) => {
     })
 })
 
-module.exports = app
+module.exports = router;
