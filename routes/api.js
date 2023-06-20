@@ -6,7 +6,7 @@ router.get("/ai", async (req, res, next) => {
     let query = req.query.query
     if (!query) return res.json({"message":"masukkan query"})
     const ress = await scr.ChatGpt(query)
-    var result
+    var result = ress.text
     res.json({
         result
     })
