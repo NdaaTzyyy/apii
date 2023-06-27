@@ -2,7 +2,7 @@ var express = require("express")
 var scr = require("api-dylux")
 var router = express()
 var { cnbcindonesia, antaranews, kompas, suaracom, liputan6, merdeka } = require('@bochilteam/scraper-news')
-
+//made by NDaaaaaaa
 //news
 router.get("/antaranews", async (req, res, next) => {
     const ress = await antaranews()
@@ -87,6 +87,15 @@ router.get("/ttp", async (req, res, next) => {
     let query = req.query.query
     if (!query) return res.json({"message":"masukkan query"})
     const ress = await scr.ttp(query)
+    var result = ress
+    res.json({
+        result
+    })
+})
+router.get("/api/StickerSearch", async (req, res, next) => {
+    let query = req.query.query
+    if (!query) return res.json({"message":"masukkan query"})
+    const ress = await scr.StickerSearch(query)
     var result = ress
     res.json({
         result
