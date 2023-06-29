@@ -32,6 +32,9 @@ app.get('/', (req, res) => {
 app.get('/docs', (req, res) => {
     res.sendFile(__dirname + '/views/index.html')
 })
+app.get('/chat', (req, res) => {
+    res.sendFile(__dirname + '/chat/index.html')
+})
 app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
